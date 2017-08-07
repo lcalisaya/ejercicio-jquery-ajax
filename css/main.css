@@ -1,0 +1,146 @@
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+html, body {
+	width: 100%;
+	height: 100%;
+}
+
+html {
+	box-sizing: border-box;
+	font-family: sans-serif;
+}
+
+body {
+	background-image: url(../img/bosque-wallpaper.jpg);
+	background-position: center center;
+	background-size: cover;
+	display: flex;             /*padre de main*/
+	justify-content: center;
+	align-items: flex-start;
+}
+
+/* Contenedor principal */
+main {
+	width: 900px;
+	min-width:320px;
+	min-height:200px;
+	display: flex;             /*padre de aside y section*/
+	flex-wrap: wrap;
+}
+
+main > * {
+	order: 999;
+}
+
+/* Interior del contenido */
+/* Lateral*/
+.lateral {
+	background-color: rgba(0,0,0,.4);
+	flex-basis: 30%;
+	padding: 20px;
+	display: flex;             /*padre de 1 img y 3 a*/
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+.lateral > img {
+	max-width: 100%;
+	margin-bottom: 20px;
+	width: 200px;
+	height: 200px;
+}
+
+.lateral a{
+	width: 60%;
+	display: flex;             /*padre de 1 img y 1 span*/
+	align-items: center;
+	justify-content: space-between;
+	text-decoration: none;
+	color: #fff;
+	margin: 10px 0;
+}
+
+.lateral a:first-of-type {
+	margin-top: auto;
+}
+
+.lateral a img {
+	width: 30px;
+	height: 30px;
+}
+
+/* Contenido */
+.contenido {
+	background-color: rgba(255, 255, 255, .7);
+	flex-basis: 70%;
+	padding:20px;
+}
+
+.contenido h1 {
+	margin-top: 0;
+	font-size: 30px;
+}
+
+.contenido ul {
+	display: flex;             /*padre de 3 li*/
+	justify-content: space-between;
+	flex-wrap: wrap;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.contenido ul li {
+	background-color: #f00;
+	flex-basis: 30%;
+	height:100px;
+	background-size: cover;
+}
+
+.contenido ul li:first-of-type {
+	background-image: url(../img/oso-polar.jpg);
+	background-position: center top;
+}
+
+.contenido ul li:nth-child(2) {
+	background-image: url(../img/oso-pardo.jpg);
+	background-position: center center;
+}
+
+.contenido ul li:last-of-type {
+	background-image: url(../img/oso-panda.jpg);
+	background-position: center center;
+}
+
+/* Respond */
+@media (max-width:705px) {
+	body {
+		align-items: flex-start;
+	}
+
+	main {
+		margin: 20px;
+	}
+
+	.lateral, .contenido {
+		flex-basis: 100%;
+	}
+
+	.contenido {
+		order: 1;
+	}
+
+	.lateral {
+		order: 2;
+	}
+}
+
+/* Útil
+.dev {
+	border: 1px solid #f00;
+}
+
+*/
