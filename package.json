@@ -1,0 +1,23 @@
+{
+  "name": "ajax-request",
+  "version": "1.0.0",
+  "description": "Ejercicio de peticiones AJAX con jQuery",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack -d --watch",
+    "prod": "webpack -p"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lcalisaya/ejercicio-jquery-ajax.git"
+  },
+  "author": "lcalisaya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lcalisaya/ejercicio-jquery-ajax/issues"
+  },
+  "homepage": "https://github.com/lcalisaya/ejercicio-jquery-ajax#readme",
+  "devDependencies": {
+    "webpack": "^3.5.6"
+  }
+}
