@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
@@ -14,18 +15,15 @@ module.exports = {
     rules: [
       {
         test: /\.scss$/,
-        use: ExtractTextPlugin.extract({
-          fallback: "style-loader",
-          use: ['css-loader', 'sass-loader'],
-          publicPath: '/dist'
-        })
+        use: ['style-loader','css-loader', 'sass-loader']
       }
     ]
   },
   devServer: {
     contentBase: path.join(__dirname, "dist"),
     compress: true,
-    stats: 'errors-only'
+    stats: 'errors-only',
+    hot: true
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -40,6 +38,11 @@ module.exports = {
       hash: true,
       template: 'src/social.ejs'
     }),
-    new ExtractTextPlugin("main.css")
+    new ExtractTextPlugin({
+      filename: "main.css",
+      disable: true //Porque no funciona con HMR
+    }),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin()
   ]
 }
