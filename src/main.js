@@ -28,3 +28,5 @@ $(document).ready(function(){
       });
     });
 });
+
+console.log('hola desde webpack dev server!');

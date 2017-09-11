@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const path = require('path');
 
 module.exports = {
   entry: './src/main.js',
@@ -19,16 +20,21 @@ module.exports = {
       }
     ]
   },
+  devServer: {
+    contentBase: path.join(__dirname, "dist"),
+    compress: true,
+    stats: 'errors-only'
+  },
   plugins: [
     new HtmlWebpackPlugin({
-    title: 'Bienvenida de Osos!',
-    hash: true,
-    template: './src/index.ejs'
-  }),
-  new HtmlWebpackPlugin({
+      title: 'Bienvenida de Osos!',
+      hash: true,
+      template: './src/index.ejs'
+    }),
+    new HtmlWebpackPlugin({
       filename: 'social.html',
       template: 'src/social.ejs'
     }),
-  new ExtractTextPlugin("main.css")
+    new ExtractTextPlugin("main.css")
   ]
 }
