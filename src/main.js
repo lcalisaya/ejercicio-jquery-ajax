@@ -1,3 +1,5 @@
+const css = require('./main.scss');
+
 //Primero, el DOM tiene que estar listo
 $(document).ready(function(){
 
