@@ -3,7 +3,9 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const path = require('path');
 
 module.exports = {
-  entry: './src/main.js',
+  entry: {
+    main: './src/main.js'
+  },
   output: {
     path: __dirname + '/dist',
     filename: 'main.bundle.js'
@@ -29,10 +31,13 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Bienvenida de Osos!',
       hash: true,
-      template: './src/index.ejs'
+      template: './src/index.ejs',
+      chunks: ['main']
     }),
     new HtmlWebpackPlugin({
       filename: 'social.html',
+      excludeChunks: ['main'],
+      hash: true,
       template: 'src/social.ejs'
     }),
     new ExtractTextPlugin("main.css")

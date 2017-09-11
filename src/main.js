@@ -1,4 +1,4 @@
-const css = require('./main.scss');
+import css from './main.scss';
 
 //Primero, el DOM tiene que estar listo
 $(document).ready(function(){
