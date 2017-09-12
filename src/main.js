@@ -4,12 +4,12 @@ import css from './main.scss';
 $(document).ready(function(){
 
   //Petición simple con Ajax
-  // $.ajax('social.html', {
-  //   success: function(respuesta){
-  //     //console.log(respuesta);
-  //     $('.lateral').append($(respuesta));
-  //   }
-  // });
+  $.ajax('social.html', {
+    success: function(respuesta){
+      //console.log(respuesta);
+      $('.lateral').append($(respuesta));
+    }
+  });
   //
   // //Método atajo = Get
   // $.get('social.html', function(respuesta){

@@ -6,8 +6,7 @@ const isProd = process.env.NODE_ENV === 'production';
 const cssDev = ['style-loader','css-loader', 'sass-loader'];
 const cssProd = ExtractTextPlugin.extract({
   fallback: 'style-loader',
-  use: ['css-loader','sass-loader'],
-  publicPath: '/dist'
+  use: ['css-loader','sass-loader']
 });
 const cssConfig = isProd ? cssProd : cssDev;
 
@@ -24,6 +23,13 @@ module.exports = {
       {
         test: /\.scss$/,
         use: cssConfig
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        use: [
+          'file-loader?name=[hash:8].[ext]&outputPath=img/',
+          'image-webpack-loader'
+        ]
       }
     ]
   },
@@ -44,7 +50,7 @@ module.exports = {
       filename: 'social.html',
       excludeChunks: ['main'],
       hash: true,
-      template: 'src/social.ejs'
+      template: './src/social.ejs'
     }),
     new ExtractTextPlugin({
       filename: "main.css",
