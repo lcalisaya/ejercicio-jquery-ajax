@@ -2,6 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const webpack = require('webpack');
 const path = require('path');
+
 const isProd = process.env.NODE_ENV === 'production';
 const cssDev = ['style-loader','css-loader', 'sass-loader'];
 const cssProd = ExtractTextPlugin.extract({
@@ -57,6 +58,10 @@ module.exports = {
       disable: !isProd
     }),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin()
+    new webpack.NamedModulesPlugin(),
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery"
+    }),
   ]
 }
